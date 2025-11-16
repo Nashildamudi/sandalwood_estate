@@ -1,0 +1,20 @@
+#3E2723
+  <!-- COMMITMENT TO QUALITY -->
+  <section class="about-section" id="commitment">
+    <h2 class="section-title reveal"><i class="fas fa-award"></i> Our Commitment to Quality</h2>
+    <div class="content container reveal reveal-delay-1">
+      <p>At an altitude of 1050 meters in Suntikoppa, Coorg, Karnataka, India, our shade-grown coffee epitomizes the intersection of tradition and quality. Established in 1892 and family-managed since 1949, Sandalwood Estate has earned its reputation both locally and internationally, with our premium beans delighting coffee enthusiasts worldwide.
+      Indulge in the rich legacy and exquisite flavors of Sandalwood Estate coffee – a true reflection of Coorg’s celebrated coffee heritage and timeless craftsmanship.</p>
+    </div>
+  </section>
+.coffee-bean-icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: baseline;
+    margin: 0;
+    object-fit: contain;
+    background: none;
+    position: relative;
+    top: 0.15em;
+}

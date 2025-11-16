@@ -75,29 +75,32 @@ const revealObserver = new IntersectionObserver((entries, obs) => {
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// Certificates modal (About page)
+// Certificates modal (About page) - displays both pages side by side
 (() => {
   const modal = document.getElementById('cert-modal');
   if (!modal) return; // only on about page
-  const modalImg = document.getElementById('cert-modal-img');
+  const modalImgFront = document.getElementById('cert-modal-img-front');
+  const modalImgMain = document.getElementById('cert-modal-img-main');
   const closeBtn = modal.querySelector('.modal-close');
   const certButtons = document.querySelectorAll('.cert');
 
-  const openModal = (src) => {
-    if (!src) return;
-    modalImg.src = src;
+  const openModal = (frontSrc, mainSrc) => {
+    if (!frontSrc || !mainSrc) return;
+    modalImgFront.src = frontSrc;
+    modalImgMain.src = mainSrc;
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
     modal.setAttribute('aria-hidden', 'true');
-    modalImg.src = '';
+    modalImgFront.src = '';
+    modalImgMain.src = '';
     document.body.style.overflow = '';
   };
 
   certButtons.forEach(btn => {
-    btn.addEventListener('click', () => openModal(btn.dataset.src));
+    btn.addEventListener('click', () => openModal(btn.dataset.front, btn.dataset.main));
   });
 
   closeBtn && closeBtn.addEventListener('click', closeModal);
@@ -178,3 +181,16 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') close(); });
 })();
+
+const video = document.getElementById('myVideo');
+    const wrapper = document.querySelector('.video-wrapper');
+
+    wrapper.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+
+    
