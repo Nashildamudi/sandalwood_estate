@@ -118,7 +118,7 @@ section {
     height: 1em;
     display: inline-block;
     vertical-align: baseline;
-    margin: 0;
+    margin:0 -0.05em;
     object-fit: contain;
     background: none;
     position: relative;
@@ -131,7 +131,7 @@ section {
     height: 2em;
     display: inline-block;
     vertical-align: middle;
-    margin: 0 0.02em;
+    margin: 0 -0.03em;
     object-fit: cover;
     border-radius: 50%;
     background: none;
@@ -150,10 +150,9 @@ section {
 .buyers .coffee-bean-icon,
 .benefits .coffee-bean-icon,
 .gallery-section .coffee-bean-icon,
-.products-hero .coffee-bean-icon,
 .gallery-hero .coffee-bean-icon,
 .contact-hero .coffee-bean-icon,
-.golden-showcase .coffee-bean-icon,
+.brown-showcase .coffee-bean-icon,
 .footer .coffee-bean-icon {
     filter: brightness(0) saturate(100%) invert(93%) sepia(10%) saturate(482%) hue-rotate(327deg) brightness(103%) contrast(92%);
 }
@@ -163,9 +162,9 @@ section {
     filter: brightness(0) invert(1);
 }
 
-/* Golden/orange color for span tags */
+/* Brown color for span tags (match #3E2723) */
 span .coffee-bean-icon {
-    filter: brightness(0) saturate(100%) invert(73%) sepia(56%) saturate(479%) hue-rotate(337deg) brightness(102%) contrast(92%);
+    filter: brightness(0) saturate(100%) invert(24%) sepia(12%) saturate(1245%) hue-rotate(338deg) brightness(92%) contrast(88%);
 }
 
 /* Override: span in dark sections stays light beige */
@@ -175,7 +174,6 @@ span .coffee-bean-icon {
 .harvest span .coffee-bean-icon,
 .about-section span .coffee-bean-icon,
 .products-list span .coffee-bean-icon,
-.products-hero span .coffee-bean-icon,
 .gallery-hero span .coffee-bean-icon,
 .contact-hero span .coffee-bean-icon,
 .golden-showcase span .coffee-bean-icon {
@@ -538,6 +536,12 @@ section {
   }
 }
 
+.photo{
+    width: 200px;       /* same size as your image */
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover; 
+}
 /* LEGACY / STORY */
 .legacy {
     padding: 6rem 0;
@@ -990,7 +994,7 @@ section {
 .products-details .specs {
     margin-top: 1rem;
     font-size: 1.6rem;
-    color: #f5e6d3;
+    color: #3E2723;
     line-height: 1.8;
 }
 
@@ -1581,23 +1585,41 @@ section {
 }
 
 /* Certificates grid */
+
 .about-section .cert-grid.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    gap: 1.4rem;
+    display: flex;
+    justify-content: space-between;  /* push cards apart for clear separation */
+    align-items: flex-start;
+    gap: 4rem;                      /* more visible gap between PDFs */
+    flex-wrap: wrap;
+    max-width: 80rem;
+    margin: 0 auto;                 /* center the whole row in the section */
+}
+
+.about-section .cert iframe {
+    width: 50rem;               /* narrower so more space between PDFs */
+    max-width: 100%;
+    height: 40rem;              /* revert to previous height */
+
+    border-radius: .4rem;
+    border: none;
+    margin: 0 1rem;             /* extra inner gap around each PDF */
 }
 
 .about-section .cert {
-    background: #fff;
-    border: 1px solid rgba(0,0,0,.06);
-    border-radius: .8rem;
-    padding: 1rem;
+    background: transparent;        /* no extra cream area */
+    border: none;                   /* remove 1px extra width */
+    border-radius: 0;
+
+    padding: 0;                     /* background = PDF size (no extra margin) */
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: .6rem;
     cursor: pointer;
     box-shadow: 0 .3rem .9rem rgba(0,0,0,.05);
+    max-width: 35rem;              /* match PDF/iframe width */
+    width: 100%;
 }
 
 .about-section .cert img {

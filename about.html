@@ -148,11 +148,16 @@
       </ul>
     </div>
     <div class="cert-grid container reveal reveal-delay-2">
-      <button class="cert" data-front="image/cirtificate1.jpg" data-main="image/cirtificate2.jpg" aria-label="View certificate">
-        <img src="image/cirtificate1.jpg" alt="Certificate front page thumbnail">
+      <button class="cert" data-front="image/cirtificate1.jpg" data-main="image/pdf2.pdf" aria-label="View certificate">
+        <iframe src="image/pdf1.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=page-fit" frameborder="0" width="500" height="400"></iframe>
+        <span>View Certificate (Both Pages)</span>
+      </button>
+      <button class="cert" data-front="image/cirtificate1.jpg" data-main="image/pdf2.pdf" aria-label="View certificate">
+        <iframe src="image/pdf2.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=page-fit" frameborder="0" width="500" height="400"></iframe>
         <span>View Certificate (Both Pages)</span>
       </button>
     </div>
+    
     <!-- Modal viewer for both certificate pages -->
     <div class="modal" id="cert-modal" aria-hidden="true" role="dialog" aria-label="Certificate viewer">
       <button class="modal-close" aria-label="Close certificate">&times;</button>
