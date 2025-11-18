@@ -153,6 +153,7 @@ section {
 .gallery-hero .coffee-bean-icon,
 .contact-hero .coffee-bean-icon,
 .brown-showcase .coffee-bean-icon,
+.golden-showcase .coffee-bean-icon,
 .footer .coffee-bean-icon {
     filter: brightness(0) saturate(100%) invert(93%) sepia(10%) saturate(482%) hue-rotate(327deg) brightness(103%) contrast(92%);
 }
@@ -178,6 +179,16 @@ span .coffee-bean-icon {
 .contact-hero span .coffee-bean-icon,
 .golden-showcase span .coffee-bean-icon {
     filter: brightness(0) saturate(100%) invert(93%) sepia(10%) saturate(482%) hue-rotate(327deg) brightness(103%) contrast(92%);
+}
+
+/* Make bean icons in CTA band heading match light text color */
+.about-band.cta .coffee-bean-icon {
+    filter: brightness(0) saturate(100%) invert(93%) sepia(10%) saturate(482%) hue-rotate(327deg) brightness(103%) contrast(92%);
+}
+
+/* Make bean icon in GET IN TOUCH heading match text color */
+.contact-hero .heading span .coffee-bean-icon {
+    filter: brightness(0) saturate(100%) invert(24%) sepia(12%) saturate(1245%) hue-rotate(338deg) brightness(92%) contrast(88%);
 }
 
 /* About hero span stays white */
@@ -216,7 +227,9 @@ span .coffee-bean-icon {
 }
 
 * {
-    font-family: 'Poppins', sans-serif;
+    font-family: "EB Garamond", serif;
+    font-weight: weight;
+    font-style: normal;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -575,17 +588,17 @@ section {
 .legacy .video-wrapper {
     width: 100%;
     aspect-ratio: 16/9;
-    background: #000;
+    background: transparent; /* Black background removed */
     border-radius: 1.2rem;
     overflow: hidden;
     box-shadow: 0 .6rem 2rem rgba(0,0,0,.12);
+    
 }
 
 .legacy .video-wrapper video {
     width: 100%;
     height: 100%;
-    object-fit: auto;
-
+    object-fit: cover; /* Video background ko fill karega */
     display: block;
 }
 
@@ -664,6 +677,14 @@ section {
     color: #f5e6d3;
     text-align: center;
     margin-bottom: 2rem;
+}
+
+.visit-info .section-title {
+    color: #3E2723;
+}
+
+.social-connect .section-title {
+    color: #3E2723;
 }
 
 /* About hero decorations */
@@ -2614,6 +2635,7 @@ section {
         font-size: 2.2rem;
         margin: 0;
         padding: 1.5rem 2rem;
+        color: #3E2723;
     }
 
     .home {
