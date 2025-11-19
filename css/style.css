@@ -1775,10 +1775,53 @@ section {
   .harvest .content.container {
       padding: 0 1.2rem;
   }
+  
+  /* Better heading responsiveness for all sections */
+  .brewing .heading,
+  .experience .heading,
+  .harvest .heading,
+  .legacy .heading {
+      font-size: 5rem;
+      line-height: 1.3;
+      word-wrap: break-word;
+  }
+  
+  .brewing .heading span,
+  .experience .heading span,
+  .harvest .heading span,
+  .legacy .heading span {
+      font-size: 2rem;
+  }
+  
+  /* Coffee bean icon sizing for mobile */
+  .brewing .coffee-bean-icon,
+  .experience .coffee-bean-icon,
+  .harvest .coffee-bean-icon,
+  .legacy .coffee-bean-icon {
+      width: 0.8em;
+      height: 1.6em;
+  }
+  
+  /* Brewing section specific mobile styles */
   .brewing .methods {
       grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
       gap: 1rem;
   }
+  
+  .brewing .methods li {
+      padding: 1.2rem 1.5rem;
+      padding-left: 2.8rem;
+      font-size: 1.5rem;
+  }
+  
+  /* Content text sizing */
+  .brewing .content.container p,
+  .experience .content.container p,
+  .harvest .content.container p {
+      font-size: 1.6rem;
+      line-height: 1.75;
+  }
+  
   .home .image-slider {
       gap: 1.2rem;
       padding: 2.4rem 0;
@@ -1795,11 +1838,62 @@ section {
 
 @media (max-width: 576px) {
   .heading {
-      font-size: 5.2rem;
+      font-size: 4.5rem;
   }
   .heading span {
-      font-size: 2rem;
+      font-size: 1.8rem;
   }
+  
+  /* Specific heading adjustments for dark sections */
+  .brewing .heading,
+  .experience .heading,
+  .harvest .heading,
+  .legacy .heading {
+      font-size: 4rem;
+  }
+  
+  .brewing .heading span,
+  .experience .heading span,
+  .harvest .heading span,
+  .legacy .heading span {
+      font-size: 1.7rem;
+  }
+  
+  /* Even smaller coffee bean icons on very small screens */
+  .brewing .coffee-bean-icon,
+  .experience .coffee-bean-icon,
+  .harvest .coffee-bean-icon,
+  .legacy .coffee-bean-icon {
+      width: 0.7em;
+      height: 1.4em;
+  }
+  
+  /* Brewing methods on small screens */
+  .brewing .methods {
+      grid-template-columns: 1fr;
+      gap: .8rem;
+  }
+  
+  .brewing .methods li {
+      padding: 1rem 1.2rem;
+      padding-left: 2.5rem;
+      font-size: 1.4rem;
+  }
+  
+  /* Content padding and font size */
+  .brewing .content.container,
+  .experience .content.container,
+  .harvest .content.container {
+      padding: 0 1rem;
+  }
+  
+  .brewing .content.container p,
+  .experience .content.container p,
+  .harvest .content.container p {
+      font-size: 1.5rem;
+      line-height: 1.7;
+  }
+  
   .home .row .content h3 {
       font-size: 3.2rem;
   }
@@ -2143,9 +2237,50 @@ section {
     border-bottom: var(--border-hover);
 }
 
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 5rem;
+    height: 5rem;
+    background: var(--main-color);
+    color: #f5e6d3;
+    border: none;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    box-shadow: 0 .4rem 1.2rem rgba(0,0,0,.3);
+    transition: all .3s ease;
+}
 
+.back-to-top.show {
+    display: flex;
+}
 
+.back-to-top:hover {
+    background: #2d1f1a;
+    transform: translateY(-.3rem);
+    box-shadow: 0 .6rem 1.6rem rgba(0,0,0,.4);
+}
 
+.back-to-top:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        width: 4.5rem;
+        height: 4.5rem;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        font-size: 1.8rem;
+    }
+}
 
 
 
@@ -2582,6 +2717,60 @@ section {
         width: 100%;
         max-width: 30rem;
     }
+    
+    /* Products page mobile improvements */
+    .products-hero .heading {
+        font-size: 5.5rem;
+    }
+    
+    .products-hero .heading span {
+        font-size: 2.2rem;
+    }
+    
+    .product-grid.container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .product-card {
+        max-width: 100%;
+    }
+    
+    /* Gallery page improvements */
+    .gallery-hero .heading {
+        font-size: 5.5rem;
+    }
+    
+    /* About page improvements */
+    .about-hero .heading {
+        font-size: 5.5rem;
+    }
+    
+    .about-hero .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .feature-row.container,
+    .feature-row.container.reverse {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about-section .cards.container {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-section .cert-grid.container {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    /* Map height reduction on mobile */
+    .map-wrapper iframe {
+        height: 350px;
+    }
 }
 
 /* MEDIA QUERIES */
@@ -2657,6 +2846,42 @@ section {
         margin-left: 0;
         margin-top: -6rem;
     }
+    
+    /* Review section mobile improvements */
+    .review .heading {
+        font-size: 5.5rem;
+    }
+    
+    .review .heading span {
+        font-size: 2.2rem;
+    }
+    
+    .review .coffee-bean-icon {
+        width: 0.8em;
+        height: 1.6em;
+    }
+    
+    .review .review-slider {
+        padding: 4rem 0;
+    }
+    
+    .review .review-slider .box {
+        padding: 1.5rem;
+    }
+    
+    /* Book section mobile improvements */
+    .book .heading {
+        font-size: 5.5rem;
+    }
+    
+    .book .heading span {
+        font-size: 2.2rem;
+    }
+    
+    .book .coffee-bean-icon {
+        width: 0.8em;
+        height: 0.8em;
+    }
 }
 
 @media (max-width: 450px) {
@@ -2667,5 +2892,89 @@ section {
     .home .row .image img {
         height: auto;
         width: 100%;
+    }
+    
+    /* Further reduce headings for very small screens */
+    .brewing .heading,
+    .experience .heading,
+    .harvest .heading,
+    .legacy .heading,
+    .review .heading,
+    .book .heading,
+    .products-hero .heading,
+    .gallery-hero .heading,
+    .about-hero .heading,
+    .contact-hero .heading {
+        font-size: 3.5rem;
+        padding: 0 1rem;
+    }
+    
+    .brewing .heading span,
+    .experience .heading span,
+    .harvest .heading span,
+    .legacy .heading span,
+    .review .heading span,
+    .book .heading span,
+    .products-hero .heading span,
+    .about-hero .heading span {
+        font-size: 1.5rem;
+    }
+    
+    /* Smallest icon sizes */
+    .brewing .coffee-bean-icon,
+    .experience .coffee-bean-icon,
+    .harvest .coffee-bean-icon,
+    .legacy .coffee-bean-icon,
+    .review .coffee-bean-icon,
+    .book .coffee-bean-icon,
+    .products-hero .coffee-bean-icon,
+    .about-hero .coffee-bean-icon,
+    .contact-hero .coffee-bean-icon {
+        width: 0.6em;
+        height: 1.2em;
+    }
+    
+    /* Brewing methods stack cleanly */
+    .brewing .methods li {
+        padding: .9rem 1rem;
+        padding-left: 2.2rem;
+        font-size: 1.3rem;
+    }
+    
+    /* Tighter content spacing */
+    section {
+        padding: 1.2rem 4%;
+    }
+    
+    .brewing,
+    .experience,
+    .harvest,
+    .legacy {
+        padding: 3rem 0;
+    }
+    
+    /* Products page tiny screen */
+    .product-card img {
+        height: 16rem;
+    }
+    
+    /* Gallery page tiny screen */
+    .golden-item.hero {
+        height: 28rem;
+    }
+    
+    /* About stats single column */
+    .about-hero .stats {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Map smaller on tiny screens */
+    .map-wrapper iframe {
+        height: 250px;
+    }
+    
+    /* Contact info cards */
+    .info-card {
+        padding: 2rem 1.5rem;
     }
 }

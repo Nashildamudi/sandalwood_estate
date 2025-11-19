@@ -183,14 +183,67 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 })();
 
 const video = document.getElementById('myVideo');
-    const wrapper = document.querySelector('.video-wrapper');
+const wrapper = document.querySelector('.video-wrapper');
 
-    wrapper.addEventListener('click', () => {
-      if (video.paused) {
-        video.play();
-      } else {
-        video.pause();
-      }
+if (wrapper && video) {
+  wrapper.addEventListener('click', () => {
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  });
+}
+
+// Back to Top Button
+(() => {
+  const backToTop = document.getElementById('backToTop');
+  if (!backToTop) return;
+
+  // Show/hide button based on scroll position
+  const toggleButton = () => {
+    if (window.pageYOffset > 300) {
+      backToTop.classList.add('show');
+    } else {
+      backToTop.classList.remove('show');
+    }
+  };
+
+  // Smooth scroll to top
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
     });
+  };
 
-    
+  // Event listeners
+  window.addEventListener('scroll', toggleButton);
+  backToTop.addEventListener('click', scrollToTop);
+
+  // Initial check
+  toggleButton();
+})();
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href === '#' || href === '#home') {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    } else if (href.startsWith('#')) {
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  });
+});
