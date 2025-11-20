@@ -114,6 +114,7 @@ section {
     color: #f5e6d3;
 }
 #photo {
+    font-size: 8rem;
     width: 1em;
     height: 1em;
     display: inline-block;
@@ -125,9 +126,28 @@ section {
     top: 0.15em;
 }
 
+/* Coffee icon styling - same as coffee-bean-icon */
+.coffee-icon {
+    font-size: 6rem;
+    width: 0.5em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 -0.03em;
+    margin-bottom: .1em;
+    object-fit: cover;
+    border-radius: 50%;
+    background: none;
+    position: relative;
+    top: 0.05em;
+    /* Default brown color for light backgrounds */
+    filter: brightness(0) saturate(100%) invert(24%) sepia(12%) saturate(1245%) hue-rotate(338deg) brightness(92%) contrast(88%);
+}
+
 /* Coffee bean icon styling */
 .coffee-bean-icon {
-    width: 1em;
+    font-size: 1rem;
+    width: 2em;
     height: 2em;
     display: inline-block;
     vertical-align: middle;
@@ -137,6 +157,47 @@ section {
     background: none;
     /* Default brown color for light backgrounds */
     filter: brightness(0) saturate(100%) invert(24%) sepia(12%) saturate(1245%) hue-rotate(338deg) brightness(92%) contrast(88%);
+}
+
+/* Mobile: Make icons smaller - applies to ALL pages */
+@media (max-width: 768px) {
+  #photo {
+      font-size: 6rem;
+      width: 0.85em;
+      height: 0.85em;
+  }
+  
+  .coffee-bean-icon {
+      font-size: 2.5rem;
+      width: 0.85em;
+      height: 1.7em;
+  }
+  
+  .coffee-icon {
+      font-size: 2.5rem;
+      width: 0.85em;
+      height: 0.85em;
+  }
+}
+
+@media (max-width: 576px) {
+  #photo {
+      font-size: 5rem;
+      width: 0.75em;
+      height: 0.75em;
+  }
+  
+  .coffee-bean-icon {
+      font-size: 2rem;
+      width: 0.75em;
+      height: 1.5em;
+  }
+  
+  .coffee-icon {
+      font-size: 6rem;
+      width: 0.4em;
+      height: 0.75em;
+  }
 }
 
 /* Light beige color for dark background sections */
@@ -154,12 +215,28 @@ section {
 .contact-hero .coffee-bean-icon,
 .brown-showcase .coffee-bean-icon,
 .golden-showcase .coffee-bean-icon,
-.footer .coffee-bean-icon {
+.footer .coffee-bean-icon,
+.legacy .coffee-icon,
+.brewing .coffee-icon,
+.experience .coffee-icon,
+.harvest .coffee-icon,
+.about-section .coffee-icon,
+.products-list .coffee-icon,
+.products-details .coffee-icon,
+.buyers .coffee-icon,
+.benefits .coffee-icon,
+.gallery-section .coffee-icon,
+.gallery-hero .coffee-icon,
+.contact-hero .coffee-icon,
+.brown-showcase .coffee-icon,
+.golden-showcase .coffee-icon,
+.footer .coffee-icon {
     filter: brightness(0) saturate(100%) invert(93%) sepia(10%) saturate(482%) hue-rotate(327deg) brightness(103%) contrast(92%);
 }
 
 /* White color for about hero icons (O shape images) */
-.about-hero .coffee-bean-icon {
+.about-hero .coffee-bean-icon,
+.about-hero .coffee-icon {
     filter: brightness(0) invert(1);
 }
 
@@ -1848,14 +1925,7 @@ section {
       font-size: 2rem;
   }
   
-  /* Coffee bean icon sizing for mobile */
-  .brewing .coffee-bean-icon,
-  .experience .coffee-bean-icon,
-  .harvest .coffee-bean-icon,
-  .legacy .coffee-bean-icon {
-      width: 0.8em;
-      height: 1.6em;
-  }
+  /* Coffee bean icons scale naturally with parent font-size on mobile */
   
   /* Brewing section specific mobile styles */
   .brewing .methods {
@@ -1912,15 +1982,6 @@ section {
   .harvest .heading span,
   .legacy .heading span {
       font-size: 1.7rem;
-  }
-  
-  /* Even smaller coffee bean icons on very small screens */
-  .brewing .coffee-bean-icon,
-  .experience .coffee-bean-icon,
-  .harvest .coffee-bean-icon,
-  .legacy .coffee-bean-icon {
-      width: 0.7em;
-      height: 1.4em;
   }
   
   /* Brewing methods on small screens */
