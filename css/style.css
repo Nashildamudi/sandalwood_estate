@@ -249,6 +249,61 @@ section {
     text-align: center;
 }
 
+/* Global responsive adjustments */
+@media (max-width: 991px) {
+  html {
+      font-size: 56.25%;
+  }
+
+  section {
+      padding: 2rem 7%;
+  }
+
+  .header {
+      padding: 1.6rem 7%;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+      font-size: 52.5%;
+  }
+
+  .header {
+      padding: 1.4rem 6%;
+  }
+
+  /* Mobile navbar: use hamburger menu */
+  #menu-btn {
+      display: block;
+  }
+
+  .header .navbar {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      left: 0;
+      background: #3E2723;
+      padding: 1.5rem 2rem 2rem;
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: .6rem;
+      box-shadow: 0 .6rem 1.6rem rgba(0,0,0,.35);
+  }
+
+  .header .navbar a {
+      display: block;
+      margin: .4rem 0;
+      font-size: 1.8rem;
+  }
+
+  /* Shown state when JS adds .active */
+  .header .navbar.active {
+      display: flex;
+  }
+}
+
 .heading {
     font-size: 9rem;
     text-transform: uppercase;
