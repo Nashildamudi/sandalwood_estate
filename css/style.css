@@ -2357,7 +2357,7 @@ a {
     }
     
     .sustainability-card:nth-child(even) .card-image {
-        order: 1;
+        order: 0;
     }
     
     .card-image {
@@ -3193,7 +3193,7 @@ a {
     }
     
     .product-showcase-card:nth-child(even) .product-image-wrapper {
-        order: 1;
+        order: 0;
     }
     
     .product-image-wrapper {
