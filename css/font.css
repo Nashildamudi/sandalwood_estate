@@ -1,0 +1,175 @@
+#photo {
+    font-size: 8rem;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: baseline;
+    margin:0 -0.05em;
+    object-fit: contain;
+    background: none;
+    position: relative;
+    top: 0.15em;
+}
+
+/* Coffee icon styling - same as coffee-bean-icon */
+.coffee-icon {
+    font-size: 5rem;
+    width: 0.5em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 -0.03em;
+    margin-bottom: 0.6rem;
+    object-fit: cover;
+    border-radius: 50%;
+    background: none;
+    position: relative;
+    top: 0.05em;
+    /* Default brown color for light backgrounds */
+    filter: brightness(0) saturate(100%) invert(24%) sepia(12%) saturate(1245%) hue-rotate(338deg) brightness(92%) contrast(88%);
+}
+
+/* Coffee bean icon styling */
+.coffee-bean-icon {
+    font-size: 1rem;
+    width: 2em;
+    height: 2em;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 -0.03em;
+    object-fit: cover;
+    border-radius: 50%;
+    background: none;
+    /* Default brown color for light backgrounds */
+    filter: brightness(0) saturate(100%) invert(24%) sepia(12%) saturate(1245%) hue-rotate(338deg) brightness(92%) contrast(88%);
+}
+
+/* Mobile: Make icons smaller - applies to ALL pages */
+@media (max-width: 768px) {
+  #photo {
+      font-size: 6rem;
+      width: 0.85em;
+      height: 0.85em;
+  }
+  
+  .coffee-bean-icon {
+      font-size: 2.5rem;
+      width: 0.85em;
+      height: 1.7em;
+  }
+  
+  .coffee-icon {
+      font-size: 2.5rem;
+      width: 0.85em;
+      height: 0.85em;
+  }
+}
+
+@media (max-width: 576px) {
+  #photo {
+      font-size: 5rem;
+      width: 0.75em;
+      height: 0.75em;
+  }
+  
+  .coffee-bean-icon {
+      font-size: 2.5rem;
+      width: 0.6em;
+      height: 1.5em;
+  }
+  
+  .coffee-icon {
+      font-size: 6.5rem;
+      width: 0.4em;
+      height: 0.75em;
+      margin-bottom: 0.3em;
+      margin-top: 0.2em;
+      
+  }
+}
+
+
+.coffee-bean-icon {
+    font-size: 1rem;
+    width: 2em;
+    height: 2em;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 -0.03em;
+    object-fit: cover;
+    border-radius: 50%;
+    background: none;
+    /* Default brown color for light backgrounds */
+    filter: brightness(0) saturate(100%) invert(24%) sepia(12%) saturate(1245%) hue-rotate(338deg) brightness(92%) contrast(88%);
+}
+
+.coffee-lay-icon {
+    font-size: 3rem;
+    width: 0.9em;
+    height: 2em;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 -0.03em;
+    object-fit: cover;
+    border-radius: 50%;
+    background: none;
+    /* Default brown color for light backgrounds */
+    filter: brightness(0) saturate(100%) invert(24%) sepia(12%) saturate(1245%) hue-rotate(338deg) brightness(92%) contrast(88%);
+}
+
+@media (max-width: 768px) {
+    .coffee-lay-icon {
+        font-size: 1.5rem;
+    }
+}
+
+#white-icon{
+    filter:  brightness(200%);
+}
+.coffee-header-lay-icon {
+    filter:  brightness(200%);
+    font-size: 9rem;
+    width: 0.8em;
+    height: 2em;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 -0.03em;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    background: none;
+    /* Default brown color for light backgrounds */
+    filter: brightness(0) saturate(100%) invert(24%) sepia(12%) saturate(1245%) hue-rotate(338deg) brightness(92%) contrast(88%);
+}
+
+.coffee-header-layover-icon {
+    font-size: 3rem;
+    width: 0.8em;
+    height: 2em;
+    margin-bottom: 5re;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 -0.03em;
+    object-fit: cover;
+    border-radius: 50%;
+    background: none;
+    /* Default brown color for light backgrounds */
+    filter: brightness(0) saturate(100%) invert(24%) sepia(12%) saturate(1245%) hue-rotate(338deg) brightness(92%) contrast(88%);
+}
+
+@media (max-width: 768px) {
+    .coffee-header-layover-icon {
+        font-size: 4rem;
+        width: 0.3em;
+        height: 0.85em;
+    }
+}
+
+@media (max-width: 768px) {
+    .coffee-header-lay-icon {
+        font-size: 8rem;
+        width: 0.4em;
+        height: 0.85em;
+        margin-top: 1rem;
+    }
+}

@@ -18,3 +18,8 @@
     position: relative;
     top: 0.15em;
 }
+<h1 class="heading reveal"><img src="image/jafar.svg" id="photo" alt="O"
+                class="coffee-layover-icon">UR LEGACY <img src="image/jafar.svg" id="photo" alt="O"
+                class="coffee-bean-icon">F <span>C<img src="image/Add a subheading (1).svg" alt="O"
+                    class="coffee-lay-icon"><small>FFEE</small> CULTIVATI<img src="image/Add a subheading (1).svg"
+                    alt="O" class="coffee-lay-icon">N</span></h1>

@@ -7,63 +7,64 @@ const sliderOptions = document.querySelectorAll('.image-slider .slider-option');
 const themeClasses = Array.from(new Set(Array.from(sliderOptions).map(option => option.dataset.theme ? `theme-${option.dataset.theme}` : null).filter(Boolean)));
 
 menu.onclick = () => {
-    menu.classList.toggle('fa-times');
-    navbar.classList.toggle('active');
+  menu.classList.toggle('fa-times');
+  navbar.classList.toggle('active');
 };
 
 window.onscroll = () => {
-    menu.classList.remove('fa-times');
-    navbar.classList.remove('active');
+  menu.classList.remove('fa-times');
+  navbar.classList.remove('active');
 };
 
 sliderOptions.forEach(option => {
-    option.onclick = () => {
-        const { src, title, theme } = option.dataset;
-        const themeClass = theme ? `theme-${theme}` : null;
+  option.onclick = () => {
+    const { src, title, theme } = option.dataset;
+    const themeClass = theme ? `theme-${theme}` : null;
 
-        if (mainHomeImage && src) {
-            mainHomeImage.src = src;
-        }
+    if (mainHomeImage && src) {
+      mainHomeImage.src = src;
+    }
 
-        if (homeHeading && title) {
-            homeHeading.textContent = title;
-        }
+    if (homeHeading && title) {
+      homeHeading.textContent = title;
+    }
 
-        if (homeSection && themeClass) {
-            homeSection.classList.remove(...themeClasses);
-            homeSection.classList.add(themeClass);
-        }
+    if (homeSection && themeClass) {
+      homeSection.classList.remove(...themeClasses);
+      homeSection.classList.add(themeClass);
+    }
 
-        // Update active visual state and accessibility
-        sliderOptions.forEach(btn => {
-            const isActive = btn === option;
-            btn.classList.toggle('is-active', isActive);
-            btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-        });
-    };
+    // Update active visual state and accessibility
+    sliderOptions.forEach(btn => {
+      const isActive = btn === option;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+  };
 });
 
 var swiper = new Swiper(".review-slider", {
-    spaceBetween: 20,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
+  spaceBetween: 20,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  loop: true,
+  grabCursor: true,
+  autoplay: {
+    delay: 7500,
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1
     },
-    loop: true,
-    grabCursor: true,
-    autoplay: {
-        delay: 7500,
-        disableOnInteraction: false,
-    },
-    breakpoints: {
-        0: {
-            slidesPerView: 1
-        },
-        768: {
-            slidesPerView: 2
-        }
-    },
+    768: {
+      slidesPerView: 2
+    }
+  },
 });
+
 const revealObserver = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -75,40 +76,160 @@ const revealObserver = new IntersectionObserver((entries, obs) => {
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// Certificates modal (About page) - displays both pages side by side
+// Certificates carousel viewer (About page) - supports multiple certificates with variable pages
 (() => {
   const modal = document.getElementById('cert-modal');
   if (!modal) return; // only on about page
-  const modalImgFront = document.getElementById('cert-modal-img-front');
-  const modalImgMain = document.getElementById('cert-modal-img-main');
-  const closeBtn = modal.querySelector('.modal-close');
-  const certButtons = document.querySelectorAll('.cert');
 
-  const openModal = (frontSrc, mainSrc) => {
-    if (!frontSrc || !mainSrc) return;
-    modalImgFront.src = frontSrc;
-    modalImgMain.src = mainSrc;
+  const certTitle = document.getElementById('cert-title');
+  const certImage = document.getElementById('cert-current-page');
+  const prevBtn = modal.querySelector('.prev-btn');
+  const nextBtn = modal.querySelector('.next-btn');
+  const closeBtn = modal.querySelector('.modal-close');
+  const pageIndicatorsContainer = document.getElementById('page-indicators');
+  const currentPageNum = document.getElementById('current-page-num');
+  const totalPagesNum = document.getElementById('total-pages-num');
+  const certButtons = document.querySelectorAll('.cert-doc');
+
+  // Certificate data structure - Using landscape.jpg as placeholder
+  // UPDATE THESE PATHS WITH YOUR ACTUAL CERTIFICATE IMAGE FILES LATER
+  const certificates = {
+    1: {
+      name: "At Source Certification - Olam Coffee",
+      pages: [
+        "image/landscape.jpg", // Page 1 - Replace with cert1-page1.jpg
+        "image/landscape.jpg", // Page 2 - Replace with cert1-page2.jpg
+        "image/landscape.jpg", // Page 3 - Replace with cert1-page3.jpg
+        "image/landscape.jpg", // Page 4 - Replace with cert1-page4.jpg
+        "image/landscape.jpg", // Page 5 - Replace with cert1-page5.jpg
+        "image/landscape.jpg"  // Page 6 - Replace with cert1-page6.jpg
+      ]
+    },
+    2: {
+      name: "EUDR Compliance Certificate",
+      pages: [
+        "image/landscape.jpg", // Page 1 - Replace with cert2-page1.jpg
+        "image/landscape.jpg", // Page 2 - Replace with cert2-page2.jpg
+        "image/landscape.jpg", // Page 3 - Replace with cert2-page3.jpg
+        "image/landscape.jpg", // Page 4 - Replace with cert2-page4.jpg
+        "image/landscape.jpg"  // Page 5 - Replace with cert2-page5.jpg
+      ]
+    }
+  };
+
+  let currentCertId = null;
+  let currentPageIndex = 0;
+
+  // Create page indicator dots
+  const createPageIndicators = (totalPages) => {
+    pageIndicatorsContainer.innerHTML = '';
+    for (let i = 0; i < totalPages; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'page-dot';
+      dot.setAttribute('aria-label', `Go to page ${i + 1}`);
+      dot.addEventListener('click', () => showPage(i));
+      pageIndicatorsContainer.appendChild(dot);
+    }
+  };
+
+  // Update page indicators
+  const updateIndicators = () => {
+    const dots = pageIndicatorsContainer.querySelectorAll('.page-dot');
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentPageIndex);
+    });
+  };
+
+  // Show specific page
+  const showPage = (pageIndex) => {
+    if (!currentCertId || !certificates[currentCertId]) return;
+
+    const cert = certificates[currentCertId];
+    const totalPages = cert.pages.length;
+
+    // Wrap around if needed
+    if (pageIndex < 0) pageIndex = totalPages - 1;
+    if (pageIndex >= totalPages) pageIndex = 0;
+
+    currentPageIndex = pageIndex;
+
+    // Preload image before displaying to prevent flickering
+    const img = new Image();
+    img.onload = () => {
+      certImage.src = cert.pages[currentPageIndex];
+    };
+    img.onerror = () => {
+      certImage.src = cert.pages[currentPageIndex];
+    };
+    img.src = cert.pages[currentPageIndex];
+
+    // Update UI
+    currentPageNum.textContent = currentPageIndex + 1;
+    totalPagesNum.textContent = totalPages;
+    updateIndicators();
+  };
+
+  // Navigate to next page
+  const nextPage = () => {
+    if (!currentCertId) return;
+    showPage(currentPageIndex + 1);
+  };
+
+  // Navigate to previous page
+  const prevPage = () => {
+    if (!currentCertId) return;
+    showPage(currentPageIndex - 1);
+  };
+
+  // Open certificate modal
+  const openCertificate = (certId) => {
+    if (!certificates[certId]) return;
+
+    currentCertId = certId;
+    currentPageIndex = 0;
+
+    const cert = certificates[certId];
+    certTitle.textContent = cert.name;
+
+    createPageIndicators(cert.pages.length);
+    showPage(0);
+
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   };
 
+  // Close modal
   const closeModal = () => {
     modal.setAttribute('aria-hidden', 'true');
-    modalImgFront.src = '';
-    modalImgMain.src = '';
+    certImage.src = '';
+    currentCertId = null;
+    currentPageIndex = 0;
     document.body.style.overflow = '';
   };
 
+  // Event listeners
   certButtons.forEach(btn => {
-    btn.addEventListener('click', () => openModal(btn.dataset.front, btn.dataset.main));
+    btn.addEventListener('click', () => {
+      const certId = btn.dataset.certId;
+      if (certId) openCertificate(certId);
+    });
   });
 
+  prevBtn && prevBtn.addEventListener('click', prevPage);
+  nextBtn && nextBtn.addEventListener('click', nextPage);
   closeBtn && closeBtn.addEventListener('click', closeModal);
+
   modal.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
   });
+
+  // Keyboard navigation
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal();
+    if (modal.getAttribute('aria-hidden') === 'false') {
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'ArrowLeft') prevPage();
+      if (e.key === 'ArrowRight') nextPage();
+    }
   });
 })();
 
@@ -246,4 +367,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       }
     }
   });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const excludedSelectors = ['script','style','noscript','code','pre','svg','input','textarea'];
+  const shouldSkipElement = (el) => {
+    if (!el) return true;
+    if (excludedSelectors.some(sel => el.closest(sel))) return true;
+    return false;
+  };
+  const looksLikeEmailOrUrl = (text) => {
+    if (!text) return false;
+    const t = text.trim();
+    if (t.includes('@')) return true;
+    if (/https?:\/\//i.test(t)) return true;
+    if (/\bwww\./i.test(t)) return true;
+    if (/\b[a-z0-9-]+\.[a-z]{2,}\b/i.test(t)) return true;
+    return false;
+  };
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      if (!node.nodeValue || !node.nodeValue.match(/[\.,]/)) return NodeFilter.FILTER_REJECT;
+      const parent = node.parentElement;
+      if (shouldSkipElement(parent)) return NodeFilter.FILTER_REJECT;
+      if (looksLikeEmailOrUrl(node.nodeValue)) return NodeFilter.FILTER_REJECT;
+      if (getComputedStyle(parent).visibility === 'hidden' || getComputedStyle(parent).display === 'none') return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    }
+  });
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(n => { n.nodeValue = n.nodeValue.replace(/[\.,]/g, ''); });
 });
