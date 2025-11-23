@@ -718,6 +718,10 @@ a {
 }
 
 @media (max-width: 768px) {
+  .home {
+      padding-top: 16rem;
+  }
+  
   .home .social-media {
       top: auto;
       bottom: 1.6rem;
@@ -725,6 +729,12 @@ a {
       transform: translateX(-50%);
       flex-direction: row;
       gap: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .home {
+      padding-top: 15rem;
   }
 }
 
