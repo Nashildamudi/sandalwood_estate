@@ -1,0 +1,531 @@
+/* ===================================
+   CREATIVE UI DESIGNER APPROACH
+   Brown Monochrome with Modern Creativity
+   Clean left-aligned text - no spacing issues
+   =================================== */
+
+/* NO INDENTATION ANYWHERE */
+p {
+    text-indent: 0 !important;
+}
+
+/* ESTATE INTRO - Large Asymmetric Typography */
+.estate-intro {
+    padding: 18rem 0 15rem;
+    background: #3E2723;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative circle element */
+.estate-intro::before {
+    content: '';
+    position: absolute;
+    top: -15%;
+    right: -10%;
+    width: 60rem;
+    height: 60rem;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+}
+
+.estate-intro .intro-content {
+    max-width: 95rem;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.estate-intro .lead-text {
+    font-size: 6rem;
+    line-height: 1.15;
+    color: #ffffff;
+    font-weight: 300;
+    margin-bottom: 5rem;
+    letter-spacing: -0.04em;
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+.estate-intro .description-text {
+    font-size: 2.2rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+}
+
+/* PILLARS SECTION - Staggered Card Grid */
+.pillars-section {
+    padding: 18rem 0;
+    background: #3E2723;
+    position: relative;
+}
+
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    max-width: 145rem;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.pillar-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3rem;
+    padding: 7rem 6rem;
+    text-align: left;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.pillar-card:hover {
+    transform: translateY(-2rem) scale(1.02);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+}
+
+.pillar-icon {
+    width: 7rem;
+    height: 7rem;
+    margin: 0 0 3.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    z-index: 2;
+    border: none;
+}
+
+.pillar-card:hover .pillar-icon {
+    transform: scale(1.15) rotate(10deg);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.pillar-icon i {
+    font-size: 3rem;
+    color: #ffffff;
+}
+
+.pillar-card h3 {
+    font-size: 3rem;
+    color: #ffffff;
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    font-family: 'Playfair Display', Georgia, serif;
+    line-height: 1.2;
+    position: relative;
+    z-index: 2;
+}
+
+.pillar-card p {
+    font-size: 1.7rem;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    position: relative;
+    z-index: 2;
+}
+
+/* SPIRIT BANNER - Bold Centered Statement */
+.spirit-banner {
+    padding: 15rem 0;
+    background: #3E2723;
+    position: relative;
+    border: none;
+}
+
+.spirit-banner::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80rem;
+    height: 80rem;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+}
+
+.spirit-banner h2 {
+    font-size: 6.5rem;
+    color: #ffffff;
+    margin-bottom: 5rem;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: -0.04em;
+    font-family: 'Playfair Display', Georgia, serif;
+    line-height: 1.15;
+    max-width: 100rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.spirit-banner p {
+    font-size: 2.2rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 90rem;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+}
+
+/* HARVEST SECTION - Creative Split with Rounded Corner */
+.harvest-section {
+    padding: 0;
+    background: #3E2723;
+    position: relative;
+}
+
+.harvest-content {
+    max-width: 150rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    min-height: 80vh;
+    align-items: stretch;
+    gap: 0;
+}
+
+.harvest-text {
+    padding: 12rem 10rem 12rem 15rem;
+    background: #3E2723;
+    text-align: center;
+}
+
+.harvest-content h2 {
+    font-size: 6rem;
+    color: #ffffff;
+    margin-bottom: 4rem;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    font-family: 'Playfair Display', Georgia, serif;
+    line-height: 1.1;
+}
+
+.harvest-content p {
+    font-size: 2.1rem;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 4rem;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+}
+
+.harvest-content .fresh-beans {
+    font-size: 2.4rem;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 5rem auto 0 auto;
+    display: block;
+   width: fit-content;
+    padding: 2rem 5rem;
+    background: transparent;
+    border: none;
+    letter-spacing: 0.05em;
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+.harvest-image {
+    background-image: url('../image/harvest-hands.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 80vh;
+    position: relative;
+    border-radius: 8rem 0 0 8rem;
+    overflow: hidden;
+}
+
+.harvest-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #3E2723 0%, transparent 25%);
+}
+
+/* BREWING SECTION - Magazine Layout */
+.brewing-section {
+    padding: 18rem 0;
+    background: #3E2723;
+    position: relative;
+}
+
+.brewing-section h2 {
+    font-size: 6rem;
+    color: #ffffff;
+    margin-bottom: 10rem;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    font-family: 'Playfair Display', Georgia, serif;
+    max-width: 145rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.brewing-intro {
+    max-width: 145rem;
+    margin: 0 auto 10rem;
+    padding: 6rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4rem;
+    border: none;
+}
+
+.brewing-intro p {
+    font-size: 2.4rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 300;
+    text-align: center;
+    letter-spacing: 0.02em;
+}
+
+.brewing-details {
+    max-width: 145rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 10rem;
+    align-items: start;
+}
+
+.brewing-text {
+    padding: 0;
+}
+
+.brewing-text p {
+    font-size: 1.9rem;
+    line-height: 2;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 3.5rem;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+}
+
+.brewing-methods {
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    border-radius: 3rem;
+    padding: 6rem 5rem;
+    position: sticky;
+    top: 12rem;
+}
+
+.brewing-methods h3 {
+    font-size: 3rem;
+    color: #ffffff;
+    margin-bottom: 4.5rem;
+    font-weight: 500;
+    font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.03em;
+}
+
+.methods-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.method-item {
+    font-size: 1.9rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 2.5rem 0;
+    border: none;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    margin-bottom: 1.5rem;
+}
+
+.method-item:hover {
+    color: #ffffff;
+}
+
+/* TESTIMONIALS - Floating Cards */
+.testimonials-section {
+    padding: 18rem 0;
+    background: #3E2723;
+    position: relative;
+}
+
+.testimonials-section h2 {
+    font-size: 6rem;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 10rem;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+.testimonials-section .review-slider {
+    max-width: 145rem;
+    margin: 0 auto;
+}
+
+.testimonials-section .box {
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    border-radius: 3rem;
+    padding: 6rem;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.testimonials-section .box:hover {
+    transform: translateY(-15px);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+}
+
+.testimonials-section .box p {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.8rem;
+    line-height: 1.8;
+}
+
+.testimonials-section .box h3 {
+    color: #ffffff;
+}
+
+.testimonials-section .box > span {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.testimonials-section .box .stars i {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* FOOTER - Minimal Clean */
+.footer {
+    background: #3E2723;
+    padding: 10rem 0 4rem;
+    border: none;
+}
+
+.footer .box-container {
+    max-width: 145rem;
+    margin: 0 auto;
+}
+
+.footer .box h3 {
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+}
+
+.footer .box a {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.6rem;
+    font-weight: 300;
+    transition: color 0.3s ease;
+}
+
+.footer .box a:hover {
+    color: #ffffff;
+}
+
+.footer .credit {
+    color: rgba(255, 255, 255, 0.3);
+    text-align: center;
+    padding-top: 5rem;
+    font-size: 1.3rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1400px) {
+    .estate-intro .lead-text {
+        font-size: 5rem;
+    }
+    
+    .spirit-banner h2,
+    .harvest-content h2,
+    .brewing-section h2,
+    .testimonials-section h2 {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .pillars-grid {
+        gap: 3rem;
+    }
+    
+    .brewing-details {
+        gap: 6rem;
+    }
+    
+    .harvest-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .harvest-image {
+        min-height: 60vh;
+        order: -1;
+        border-radius: 4rem 4rem 0 0;
+    }
+    
+    .harvest-text {
+        padding: 8rem 5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .pillars-grid {
+        grid-template-columns: 1fr;
+        max-width: 70rem;
+    }
+    
+    .brewing-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .brewing-methods {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .estate-intro,
+    .pillars-section,
+    .spirit-banner,
+    .brewing-section,
+    .testimonials-section {
+        padding: 10rem 0;
+    }
+    
+    .estate-intro .lead-text {
+        font-size: 4rem;
+    }
+    
+    .estate-intro .description-text {
+        margin-left: 0;
+        border-left: none;
+        padding-left: 0;
+    }
+    
+    .pillar-card,
+    .brewing-methods {
+        padding: 5rem 4rem;
+    }
+}
