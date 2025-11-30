@@ -16,32 +16,53 @@ window.onscroll = () => {
   navbar.classList.remove('active');
 };
 
-sliderOptions.forEach(option => {
-  option.onclick = () => {
-    const { src, title, theme } = option.dataset;
-    const themeClass = theme ? `theme-${theme}` : null;
+// Helper: activate one slider option by index (used for autoplay)
+const activateSliderOption = (index) => {
+  if (!sliderOptions.length) return;
+  const option = sliderOptions[index];
+  if (!option) return;
 
-    if (mainHomeImage && src) {
-      mainHomeImage.src = src;
-    }
+  const { src, theme } = option.dataset;
+  const themeClass = theme ? `theme-${theme}` : null;
 
-    if (homeHeading && title) {
-      homeHeading.textContent = title;
-    }
+  if (mainHomeImage && src) {
+    mainHomeImage.src = src;
+  }
 
-    if (homeSection && themeClass) {
-      homeSection.classList.remove(...themeClasses);
-      homeSection.classList.add(themeClass);
-    }
+  if (homeSection && themeClass) {
+    homeSection.classList.remove(...themeClasses);
+    homeSection.classList.add(themeClass);
+  }
 
-    // Update active visual state and accessibility
-    sliderOptions.forEach(btn => {
-      const isActive = btn === option;
-      btn.classList.toggle('is-active', isActive);
-      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-    });
-  };
-});
+  // Update active visual state and accessibility
+  sliderOptions.forEach(btn => {
+    const isActive = btn === option;
+    btn.classList.toggle('is-active', isActive);
+    btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  });
+};
+
+// Auto-rotate the home themes every 4 seconds
+if (sliderOptions.length && homeSection) {
+  let currentIndex = 0;
+
+  // Start with solid color only (no background image)
+  homeSection.classList.add('home-initial-color');
+
+  // Activate first option immediately (for text and theme color)
+  activateSliderOption(currentIndex);
+
+  // After 2s, reveal background image for the first slide
+  setTimeout(() => {
+    homeSection.classList.remove('home-initial-color');
+  }, 2000);
+
+  // Then rotate every 2 seconds to the next theme
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % sliderOptions.length;
+    activateSliderOption(currentIndex);
+  }, 2000);
+}
 
 var swiper = new Swiper(".review-slider", {
   spaceBetween: 20,
@@ -97,22 +118,19 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     1: {
       name: "At Source Certification - Olam Coffee",
       pages: [
-        "image/landscape.jpg", // Page 1 - Replace with cert1-page1.jpg
-        "image/landscape.jpg", // Page 2 - Replace with cert1-page2.jpg
-        "image/landscape.jpg", // Page 3 - Replace with cert1-page3.jpg
-        "image/landscape.jpg", // Page 4 - Replace with cert1-page4.jpg
-        "image/landscape.jpg", // Page 5 - Replace with cert1-page5.jpg
-        "image/landscape.jpg"  // Page 6 - Replace with cert1-page6.jpg
+        "image/cir1.png", // Page 1 - Replace with cert1-page1.jpg
+        "image/cir2.png", // Page 2 - Replace with cert1-page2.jpg
+        "image/cir3.png", // Page 3 - Replace with cert1-page3.jpg
+        "image/cir4.png", // Page 4 - Replace with cert1-page4.jpg
       ]
     },
     2: {
       name: "EUDR Compliance Certificate",
       pages: [
-        "image/landscape.jpg", // Page 1 - Replace with cert2-page1.jpg
-        "image/landscape.jpg", // Page 2 - Replace with cert2-page2.jpg
-        "image/landscape.jpg", // Page 3 - Replace with cert2-page3.jpg
-        "image/landscape.jpg", // Page 4 - Replace with cert2-page4.jpg
-        "image/landscape.jpg"  // Page 5 - Replace with cert2-page5.jpg
+        "image/cirt1.png", // Page 1 - Replace with cert2-page1.jpg
+        "image/cirt2.png", // Page 2 - Replace with cert2-page2.jpg
+        "image/cirt3.png", // Page 3 - Replace with cert2-page3.jpg
+        "image/cirt4.png", // Page 4 - Replace with cert2-page4.jpg
       ]
     }
   };
