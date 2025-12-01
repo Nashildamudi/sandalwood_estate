@@ -2100,13 +2100,6 @@ a {
 /* Featured card without image */
 .card-featured {
     grid-template-columns: 1fr !important;
-    background: rgba(45, 31, 26, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 1.6rem;
-    overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, .4);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(255, 255, 255, .1);
 }
 
 .card-featured .card-content {
