@@ -428,6 +428,13 @@ a {
         display: block;
     }
 
+    /* Mobile logo size - keep consistent across pages */
+    .header .logo img {
+        height: 4rem;
+        width: auto;
+        display: block;
+    }
+
     .header .navbar {
         position: absolute;
         top: 100%;
@@ -583,6 +590,8 @@ a {
 .header .logo i {
     padding-left: .5rem;
 }
+
+
 
 .header .navbar a {
     margin: 0 1rem;
@@ -2271,7 +2280,10 @@ a {
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
     transition: all 0.4s ease;
+
 }
+
+
 
 .cert-doc:hover {
     transform: translateY(-10px);
@@ -2360,7 +2372,7 @@ a {
     justify-content: center;
     align-items: center;
     max-width: 80vw;
-    max-height: 65vh;
+    max-height: 72vh;
     min-height: 50vh;
     background: rgba(0, 0, 0, 0.05);
     border-radius: 0.8rem;
@@ -2368,7 +2380,7 @@ a {
 
 .cert-image-container img {
     max-width: 100%;
-    max-height: 65vh;
+    max-height: 50vh;
     width: auto;
     height: auto;
     border-radius: 0.8rem;
