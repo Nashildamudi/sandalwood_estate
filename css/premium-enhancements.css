@@ -73,12 +73,23 @@ html {
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.05); opacity: 0.8; }
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
 }
 
 /* ========================================
@@ -108,7 +119,7 @@ html {
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.8s var(--easing-smooth),
-                transform 0.8s var(--easing-smooth);
+        transform 0.8s var(--easing-smooth);
 }
 
 .reveal.revealed {
@@ -153,11 +164,9 @@ html {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(
-        circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(255, 255, 255, 0.1) 0%,
-        transparent 50%
-    );
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 50%);
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -216,6 +225,7 @@ html {
         transform: translateX(-50%) translateY(0);
         opacity: 1;
     }
+
     100% {
         transform: translateX(-50%) translateY(20px);
         opacity: 0;
@@ -274,6 +284,7 @@ html {
         transform: scale(1);
         opacity: 1;
     }
+
     100% {
         transform: scale(1.5);
         opacity: 0;
@@ -357,9 +368,12 @@ html {
 }
 
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0) rotate(0deg);
     }
+
     50% {
         transform: translateY(-20px) rotate(5deg);
     }
@@ -380,11 +394,9 @@ html {
     right: -50%;
     bottom: -50%;
     left: -50%;
-    background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.05),
-        rgba(255, 255, 255, 0)
-    );
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.05),
+            rgba(255, 255, 255, 0));
     transform: rotateZ(0deg);
     transition: transform 0.6s ease;
 }
@@ -416,19 +428,24 @@ html {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(
-        135deg,
-        rgba(212, 175, 55, 0.1) 0%,
-        transparent 50%,
-        rgba(62, 39, 35, 0.1) 100%
-    );
+    background: linear-gradient(135deg,
+            rgba(212, 175, 55, 0.1) 0%,
+            transparent 50%,
+            rgba(62, 39, 35, 0.1) 100%);
     pointer-events: none;
     animation: gradient-shift 8s ease infinite;
 }
 
 @keyframes gradient-shift {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.6; }
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
 }
 
 /* ========================================
@@ -475,16 +492,6 @@ img {
     transition: opacity 0.4s ease, filter 0.4s ease;
 }
 
-img:not(.loaded) {
-    filter: blur(10px);
-    opacity: 0.5;
-}
-
-img.loaded {
-    filter: blur(0);
-    opacity: 1;
-}
-
 /* ========================================
    ENHANCED BACK TO TOP BUTTON
    ======================================== */
@@ -524,21 +531,21 @@ img.loaded {
         width: 50px;
         height: 50px;
     }
-    
+
     .whatsapp-float i {
         font-size: 2.2rem;
     }
-    
+
     .scroll-indicator {
         bottom: 30px;
     }
-    
+
     .video-overlay i {
         font-size: 4rem;
         width: 70px;
         height: 70px;
     }
-    
+
     .header.scrolled {
         padding: 1rem 1.5rem;
     }
@@ -548,6 +555,7 @@ img.loaded {
    PRINT STYLES (hide animations)
    ======================================== */
 @media print {
+
     .loading-screen,
     .whatsapp-float,
     .scroll-indicator,
@@ -561,6 +569,7 @@ img.loaded {
    ACCESSIBILITY ENHANCEMENTS
    ======================================== */
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
