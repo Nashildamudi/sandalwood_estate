@@ -77,19 +77,6 @@ li,
     max-width: 120rem;
 }
 
-.estate-intro .intro-estate-image {
-    width: 100%;
-    border-radius: 1.5rem;
-    overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-}
-
-.estate-intro .intro-estate-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
 
 .estate-intro .description-text {
     font-size: 1.9rem;
@@ -414,7 +401,7 @@ li,
 }
 
 .brewing-text p {
-    font-size: 1.7rem;
+    font-size: 2.0rem;
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 2.5rem;
@@ -436,7 +423,7 @@ li,
     border-radius: 2rem;
     padding: 4rem 3.5rem;
     position: sticky;
-    top: 10rem;
+    top: 0rem;
     height: fit-content;
 }
 

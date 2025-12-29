@@ -209,37 +209,37 @@
     // ========================================
     // VIDEO CONTROLS ENHANCEMENT
     // ========================================
-    const videoContainers = document.querySelectorAll('.intro-video');
-    videoContainers.forEach(container => {
-        const video = container.querySelector('video');
-        if (video) {
-            // Add custom play button overlay if it doesn't exist
-            if (!container.querySelector('.video-overlay')) {
-                const overlay = document.createElement('div');
-                overlay.className = 'video-overlay';
-                overlay.innerHTML = '<i class="fas fa-play"></i>';
-                container.appendChild(overlay);
+    // const videoContainers = document.querySelectorAll('.intro-video');
+    // videoContainers.forEach(container => {
+    //     const video = container.querySelector('video');
+    //     if (video) {
+    //         // Add custom play button overlay if it doesn't exist
+    //         if (!container.querySelector('.video-overlay')) {
+    //             const overlay = document.createElement('div');
+    //             overlay.className = 'video-overlay';
+    //             overlay.innerHTML = '<i class="fas fa-play"></i>';
+    //             container.appendChild(overlay);
 
-                overlay.addEventListener('click', () => {
-                    if (video.paused) {
-                        video.play();
-                        overlay.classList.add('playing');
-                    } else {
-                        video.pause();
-                        overlay.classList.remove('playing');
-                    }
-                });
+    //             overlay.addEventListener('click', () => {
+    //                 if (video.paused) {
+    //                     video.play();
+    //                     overlay.classList.add('playing');
+    //                 } else {
+    //                     video.pause();
+    //                     overlay.classList.remove('playing');
+    //                 }
+    //             });
 
-                video.addEventListener('play', () => {
-                    overlay.classList.add('playing');
-                });
+    //             video.addEventListener('play', () => {
+    //                 overlay.classList.add('playing');
+    //             });
 
-                video.addEventListener('pause', () => {
-                    overlay.classList.remove('playing');
-                });
-            }
-        }
-    });
+    //             video.addEventListener('pause', () => {
+    //                 overlay.classList.remove('playing');
+    //             });
+    //         }
+    //     }
+    // });
 
     // ========================================
     // ENHANCED HOVER STATES FOR CARDS
