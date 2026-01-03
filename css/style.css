@@ -428,6 +428,13 @@ a {
         display: block;
     }
 
+    /* Mobile logo size - keep consistent across pages */
+    .header .logo img {
+        height: 4rem;
+        width: auto;
+        display: block;
+    }
+
     .header .navbar {
         position: absolute;
         top: 100%;
@@ -584,6 +591,8 @@ a {
     padding-left: .5rem;
 }
 
+
+
 .header .navbar a {
     margin: 0 1rem;
     font-size: 1.6rem;
@@ -654,23 +663,20 @@ a {
 }
 
 /* Initial state: only show a solid color (no background image) */
-.home.home-initial-color {
-    background-image: none !important;
-    background-color: #ffffff;
-}
+
 
 .home.theme-classic .image-slider .image-name {
-    color: #fff;
+   
     text-shadow: 0 .2rem .6rem rgba(34, 16, 6, 0.45);
 }
 
 .home.theme-iced .image-slider .image-name {
-    color: #fff;
+   
     text-shadow: 0 .2rem .6rem rgba(255, 255, 255, 0.35);
 }
 
 .home.theme-rich .image-slider .image-name {
-    color: #fff;
+   
     text-shadow: 0 .2rem .6rem rgba(34, 16, 6, 0.45);
 }
 
@@ -1500,6 +1506,7 @@ a {
 }
 
 .social-connect .section-title {
+
     color: #3E2723;
 }
 
@@ -2184,7 +2191,9 @@ a {
 }
 
 .welfare-item {
-    background: rgba(255, 255, 255, 0.1);
+    background-image: url('../images/sunset.jpg');
+    background-size: cover;
+    background-position: center;
     backdrop-filter: blur(10px);
     padding: 2.5rem 2rem;
     border-radius: 1.2rem;
@@ -2298,7 +2307,10 @@ a {
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
     transition: all 0.4s ease;
+
 }
+
+
 
 .cert-doc:hover {
     transform: translateY(-10px);
@@ -2387,7 +2399,7 @@ a {
     justify-content: center;
     align-items: center;
     max-width: 80vw;
-    max-height: 65vh;
+    max-height: 72vh;
     min-height: 50vh;
     background: rgba(0, 0, 0, 0.05);
     border-radius: 0.8rem;
@@ -2395,7 +2407,7 @@ a {
 
 .cert-image-container img {
     max-width: 100%;
-    max-height: 65vh;
+    max-height: 50vh;
     width: auto;
     height: auto;
     border-radius: 0.8rem;
@@ -5638,5 +5650,29 @@ a {
     /* Contact info cards */
     .info-card {
         padding: 2rem 1.5rem;
+    }
+}
+
+/* Intro video responsive wrapper */
+.intro-video {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.intro-video video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .intro-video {
+        max-width: 100%;
+        padding: 1 1.5rem;
+    }
+
+    .intro-video video {
+        width: 100%;
+        height: auto;
     }
 }
