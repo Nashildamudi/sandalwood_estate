@@ -42,7 +42,7 @@ const activateSliderOption = (index) => {
   });
 };
 
-// Auto-rotate the home themes every 4 seconds
+//Auto-rotate the home themes every 4 seconds
 if (false) {
   let currentIndex = 0;
 
