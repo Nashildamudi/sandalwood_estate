@@ -43,7 +43,7 @@ const activateSliderOption = (index) => {
 };
 
 // Auto-rotate the home themes every 4 seconds
-if (sliderOptions.length && homeSection) {
+if (false) {
   let currentIndex = 0;
 
   // Start with solid color only (no background image)
