@@ -233,6 +233,14 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     });
   });
 
+  document.querySelectorAll('[data-open-cert-id]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      const certId = el.getAttribute('data-open-cert-id');
+      if (certId) openCertificate(certId);
+    });
+  });
+
   prevBtn && prevBtn.addEventListener('click', prevPage);
   nextBtn && nextBtn.addEventListener('click', nextPage);
   closeBtn && closeBtn.addEventListener('click', closeModal);

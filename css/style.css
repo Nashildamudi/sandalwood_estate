@@ -1563,10 +1563,14 @@ text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     background: linear-gradient(180deg, rgba(0, 0, 0, .35), rgba(0, 0, 0, .25));
 }
 
+.centerd {
+    text-align: center;
+}
+
 .about-hero__content {
     position: relative;
     z-index: 2;
-    min-height: 60vh;
+    min-height: 75vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1702,6 +1706,7 @@ text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
 @media (max-width: 768px) {
     .about-hero__content {
+        min-height: 70vh;
         padding: 8rem 1.4rem 5rem;
     }
 }
@@ -2364,7 +2369,7 @@ text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 /* Certificate Modal - Carousel Style */
 .modal-content-cert {
     position: relative;
-    max-width: 95vw;
+    max-width: 95vh;
     max-height: 90vh;
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
@@ -2398,7 +2403,7 @@ text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 80vw;
+    max-width: 80vh;
     max-height: 72vh;
     min-height: 50vh;
     background: rgba(0, 0, 0, 0.05);
@@ -2407,7 +2412,7 @@ text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
 .cert-image-container img {
     max-width: 100%;
-    max-height: 50vh;
+    max-height: 70vh;
     width: auto;
     height: auto;
     border-radius: 0.8rem;
@@ -3212,6 +3217,7 @@ text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     display: inline-flex;
     align-items: center;
     gap: 0.8rem;
+    background-color: #3E2723;
 }
 
 /* Coffee Details Section */
