@@ -42,8 +42,8 @@ const activateSliderOption = (index) => {
   });
 };
 
-// Auto-rotate the home themes every 4 seconds
-if (sliderOptions.length && homeSection) {
+//Auto-rotate the home themes every 4 seconds
+if (false) {
   let currentIndex = 0;
 
   // Start with solid color only (no background image)
@@ -229,6 +229,14 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   certButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       const certId = btn.dataset.certId;
+      if (certId) openCertificate(certId);
+    });
+  });
+
+  document.querySelectorAll('[data-open-cert-id]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      const certId = el.getAttribute('data-open-cert-id');
       if (certId) openCertificate(certId);
     });
   });

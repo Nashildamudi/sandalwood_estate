@@ -5,6 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="image" href="image/backgroundimage.jpg">
+    <style>
+        html,
+        body,
+        .home {
+            background-image: url('image/backroundimage.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
     <meta name="description"
         content="Sandalwood Estate - Premium coffee plantation in Coorg, India. Specializing in washed Arabica coffee, black pepper, and arecanut since 1892.">
     <meta name="keywords"
@@ -59,8 +70,8 @@
         </nav>
     </header>
 
-    <!-- HOME -->
-    <section class="home" id="home">
+    <!-- HOME -->                             
+    <section class="home theme-classic" id="home">
         <div class="row">
             <div class="content">
                 <h3>SANDALWOOD ESTATE COORG</h3>
@@ -73,23 +84,6 @@
             <p class="scroll-indicator-text">Scroll to Explore</p>
         </div>
 
-        <div class="image-slider">
-            <button type="button" class="slider-option" aria-pressed="false" data-src="image/coffe.png"
-                data-title="coffee" data-theme="classic">
-                <img src="image/coffe.png" alt="Classic hot coffee">
-                <span class="image-name">coffee</span>
-            </button>
-            <button type="button" class="slider-option" aria-pressed="false" data-src="image/home-img-2.png"
-                data-title="Arecanut" data-theme="iced">
-                <img src="image/arecanut-icon.png" alt="Iced coffee">
-                <span class="image-name">Arecanut</span>
-            </button>
-            <button type="button" class="slider-option" aria-pressed="false" data-src="image/home-img-3.png"
-                data-title="Black pepper" data-theme="rich">
-                <img src="image/black-pepper-icon.png" alt="Creamy cappuccino">
-                <span class="image-name">Black pepper</span>
-            </button>
-        </div>
         <div class="social-media" aria-label="Social links">
             <a href="https://www.facebook.com/people/Sandalwood-Estate/61571954682599/" target="_blank" rel="noopener"
                 aria-label="Facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>

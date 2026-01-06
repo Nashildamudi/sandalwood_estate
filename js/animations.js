@@ -137,7 +137,7 @@
     });
 
     // Add parallax to home section background
-    const homeSection = document.querySelector('.home');
+    const homeSection = document.querySelector('.home.parallax');
     if (homeSection) {
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
