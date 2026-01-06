@@ -216,6 +216,94 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     document.body.style.overflow = 'hidden';
   };
 
+  const downloadCertificateAsPdf = (certId) => {
+    const cert = certificates[certId];
+    if (!cert) return;
+
+    const printWindow = window.open('', '_blank', 'width=900,height=700');
+    if (!printWindow) return;
+
+    const resolvedPages = cert.pages.map((src) => {
+      try {
+        return new URL(src, window.location.href).href;
+      } catch (_) {
+        return src;
+      }
+    });
+
+    const pagesHtml = resolvedPages
+      .map((src) => `<div class="page"><img src="${src}" alt="${cert.name}"></div>`)
+      .join('');
+
+    printWindow.document.open();
+    printWindow.document.write(`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="${window.location.href}">
+  <title>${cert.name}</title>
+  <style>
+    @page { margin: 12mm; }
+    body { margin: 0; font-family: Arial, sans-serif; background: #fff; }
+    .toolbar { position: sticky; top: 0; z-index: 10; background: #fff; border-bottom: 1px solid #e5e5e5; padding: 10px 12px; }
+    .toolbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; max-width: 980px; margin: 0 auto; }
+    .title { font-size: 14px; font-weight: 600; }
+    .btn { appearance: none; border: 1px solid #111; background: #111; color: #fff; padding: 8px 12px; border-radius: 8px; cursor: pointer; font-size: 13px; }
+    .btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+    .hint { font-size: 12px; color: #444; }
+    .pages { max-width: 980px; margin: 0 auto; }
+    .page { page-break-after: always; break-after: page; padding: 0; }
+    .page:last-child { page-break-after: auto; break-after: auto; }
+    img { width: 100%; height: auto; display: block; }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <div class="toolbar-inner">
+      <div>
+        <div class="title">${cert.name}</div>
+        <div class="hint">When ready, click “Save as PDF”, then choose “Save as PDF” in the print dialog.</div>
+      </div>
+      <button class="btn" id="printBtn" disabled>Save as PDF</button>
+    </div>
+  </div>
+  <div class="pages">
+    ${pagesHtml}
+  </div>
+  <script>
+    (function(){
+      const printBtn = document.getElementById('printBtn');
+      if (!printBtn) return;
+
+      const imgs = Array.from(document.images);
+      if (!imgs.length) {
+        printBtn.disabled = false;
+        printBtn.addEventListener('click', () => window.print());
+        return;
+      }
+
+      let loaded = 0;
+      const done = () => {
+        loaded++;
+        if (loaded >= imgs.length) {
+          printBtn.disabled = false;
+        }
+      };
+      imgs.forEach(img => {
+        if (img.complete) return done();
+        img.addEventListener('load', done, { once: true });
+        img.addEventListener('error', done, { once: true });
+      });
+
+      printBtn.addEventListener('click', () => window.print());
+    })();
+  </script>
+</body>
+</html>`);
+    printWindow.document.close();
+  };
+
   // Close modal
   const closeModal = () => {
     modal.setAttribute('aria-hidden', 'true');
@@ -236,8 +324,18 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   document.querySelectorAll('[data-open-cert-id]').forEach(el => {
     el.addEventListener('click', (e) => {
       e.preventDefault();
+      e.stopImmediatePropagation();
       const certId = el.getAttribute('data-open-cert-id');
       if (certId) openCertificate(certId);
+    });
+  });
+
+  document.querySelectorAll('[data-download-cert-id]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      const certId = el.getAttribute('data-download-cert-id');
+      if (certId) downloadCertificateAsPdf(certId);
     });
   });
 

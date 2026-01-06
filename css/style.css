@@ -666,17 +666,17 @@ a {
 
 
 .home.theme-classic .image-slider .image-name {
-   
+
     text-shadow: 0 .2rem .6rem rgba(34, 16, 6, 0.45);
 }
 
 .home.theme-iced .image-slider .image-name {
-   
+
     text-shadow: 0 .2rem .6rem rgba(255, 255, 255, 0.35);
 }
 
 .home.theme-rich .image-slider .image-name {
-   
+
     text-shadow: 0 .2rem .6rem rgba(34, 16, 6, 0.45);
 }
 
@@ -715,13 +715,13 @@ a {
 }
 
 .home .row .content h3 {
-font-size: clamp(2.8rem, 6vw, 5.5rem);
-line-height: 1.15;
-color: #fff;
-text-transform: uppercase;
-font-weight: 800;
-letter-spacing: 0.02em;
-text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    line-height: 1.15;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* When only white background is visible (.home-initial-color), keep heading brown */
@@ -3252,32 +3252,54 @@ text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     gap: 1.2rem;
     flex-wrap: wrap;
+    align-items: stretch;
 }
 
 .product-actions .product-btn {
-    flex: 1;
+    flex: 1 1 18rem;
     justify-content: center;
     text-align: center;
     margin-top: 0;
     min-width: 18rem;
+    min-height: 4.2rem;
+    padding: 1rem 1.4rem;
+    white-space: nowrap;
 }
 
 .product-btn {
-    align-self: flex-start;
+    align-self: stretch;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.8rem;
     background-color: #3E2723;
+    box-sizing: border-box;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
     .product-actions {
         flex-direction: column;
+        gap: 0.8rem;
     }
 
     .product-actions .product-btn {
         width: 100%;
         min-width: 0;
+        flex: 0 0 auto !important;
+        /* Reset flex-basis so it doesn't force a large height in column mode */
+        white-space: normal;
+        margin-top: 0 !important;
+        min-height: auto !important;
+        /* Allow content to dictate height */
+        padding: 1.6rem 2rem !important;
+        /* Slightly more padding for touch targets, but compact */
+        font-size: 1.4rem;
+        /* Readable size */
+        line-height: 1.2;
+    }
+
+    .product-actions .product-btn i {
+        font-size: 1.4rem;
     }
 }
 
