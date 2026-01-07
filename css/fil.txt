@@ -23,3 +23,10 @@
                 class="coffee-bean-icon">F <span>C<img src="image/Add a subheading (1).svg" alt="O"
                     class="coffee-lay-icon"><small>FFEE</small> CULTIVATI<img src="image/Add a subheading (1).svg"
                     alt="O" class="coffee-lay-icon">N</span></h1>
+
+
+                    <img src="image/worker.jpg" loading="lazy" alt="Workers">
+        <div class="bento-overlay">
+          <span class="badge"></span>
+          <p class="caption"></p>
+        </div>

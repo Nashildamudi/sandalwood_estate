@@ -2192,14 +2192,12 @@ a {
 }
 
 .welfare-item {
-    background-image: url('../images/sunset.jpg');
-    background-size: cover;
-    background-position: center;
     backdrop-filter: blur(10px);
-    padding: 2.5rem 2rem;
+    padding: 0;
     border-radius: 1.2rem;
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
+    overflow: hidden;
 
 }
 
@@ -2208,13 +2206,43 @@ a {
     transform: translateY(-5px);
 }
 
-.welfare-item i {
-    font-size: 3rem;
-    color: #dcaf80;
-    margin-bottom: 1.2rem;
-    display: block;
-    text-align: left !important;
+.welfare-item__image {
+    position: relative;
+    width: 100%;
+    height: 16rem;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.06);
+}
 
+.welfare-item__image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.welfare-item:hover .welfare-item__image img {
+    transform: scale(1.06);
+}
+
+.welfare-item__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1.2rem;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+}
+
+.welfare-item__overlay i {
+    font-size: 2.4rem;
+    color: #dcaf80;
+}
+
+.welfare-item__content {
+    padding: 2.0rem 2rem 2.2rem;
 }
 
 .welfare-item h4 {
@@ -2256,6 +2284,94 @@ a {
 
 .welfare-gallery__item:hover img {
     transform: scale(1.06);
+}
+
+/* LONG-TERM VISION SECTION */
+.vision-section {
+    padding: 6rem 0;
+    background: linear-gradient(180deg, #3E2723 0%, #4a342e 100%);
+}
+
+.vision-section .section-title {
+    color: #f5e6d3;
+}
+
+.vision-card {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 0;
+    max-width: 95rem;
+    margin: 3rem auto 0;
+    border-radius: 1.6rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+}
+
+.vision-media {
+    position: relative;
+    min-height: 32rem;
+    overflow: hidden;
+}
+
+.vision-media--bg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.vision-media img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.vision-media__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.05));
+}
+
+.vision-body {
+    display: flex;
+    align-items: center;
+    padding: 3rem 3.2rem;
+    background: rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(10px);
+    border-left: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.vision-body .content p {
+    font-size: 1.7rem;
+    line-height: 1.9;
+    color: rgba(245, 230, 211, 0.92);
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .vision-card {
+        grid-template-columns: 1fr;
+    }
+
+    .vision-card--bg {
+        min-height: 24rem;
+    }
+
+    .vision-media {
+        min-height: 24rem;
+    }
+
+    .vision-body {
+        padding: 2.4rem 2.2rem;
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.10);
+    }
+
+    .vision-media__overlay {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.05));
+    }
 }
 
 /* CERTIFICATIONS SECTION */
