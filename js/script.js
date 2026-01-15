@@ -493,33 +493,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const excludedSelectors = ['script','style','noscript','code','pre','svg','input','textarea'];
-  const shouldSkipElement = (el) => {
-    if (!el) return true;
-    if (excludedSelectors.some(sel => el.closest(sel))) return true;
-    return false;
-  };
-  const looksLikeEmailOrUrl = (text) => {
-    if (!text) return false;
-    const t = text.trim();
-    if (t.includes('@')) return true;
-    if (/https?:\/\//i.test(t)) return true;
-    if (/\bwww\./i.test(t)) return true;
-    if (/\b[a-z0-9-]+\.[a-z]{2,}\b/i.test(t)) return true;
-    return false;
-  };
-  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
-    acceptNode(node) {
-      if (!node.nodeValue || !node.nodeValue.match(/[\.,]/)) return NodeFilter.FILTER_REJECT;
-      const parent = node.parentElement;
-      if (shouldSkipElement(parent)) return NodeFilter.FILTER_REJECT;
-      if (looksLikeEmailOrUrl(node.nodeValue)) return NodeFilter.FILTER_REJECT;
-      if (getComputedStyle(parent).visibility === 'hidden' || getComputedStyle(parent).display === 'none') return NodeFilter.FILTER_REJECT;
-      return NodeFilter.FILTER_ACCEPT;
-    }
-  });
-  const nodes = [];
-  while (walker.nextNode()) nodes.push(walker.currentNode);
-  nodes.forEach(n => { n.nodeValue = n.nodeValue.replace(/[\.,]/g, ''); });
-});

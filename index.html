@@ -316,6 +316,56 @@
         </div>
     </section>
 
+    <!-- REVIEW FORM -->
+    <section class="review-form-section">
+        <div class="container">
+            <h2 style="font-size: 4rem; text-align: center; color: var(--main-color); margin-bottom: 3rem; text-transform: uppercase;"
+                class="reveal">Leave a Review</h2>
+            <div class="contact-form-container" style="max-width: 800px; margin: 0 auto; padding: 0;">
+                <script type="text/javascript">var submitted = false;</script>
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+                    onload="if(submitted) {alert('Thank you for your review!'); window.location.reload();}"></iframe>
+                <form class="contact-form"
+                    action="https://docs.google.com/forms/d/e/1FAIpQLSfvUg1AKrBMIL5-LL61CPaNa-jpA8mQXuR8gdxyEhXjXmNDiw/formResponse"
+                    method="post" target="hidden_iframe" onsubmit="submitted=true;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="entry.1895295741" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="entry.190342487" placeholder="Your Email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Rating</label>
+                        <select name="entry.1084539666" required
+                            style="padding: 1.2rem 1.4rem; font-size: 1.5rem; border: 2px solid rgba(0, 0, 0, .1); border-radius: 0.8rem; background: rgba(255, 255, 255, 0.95); color: var(--main-color); width: 100%;">
+                            <option value="" disabled selected>Select Rating</option>
+                            <option value="5 Stars - Excellent">5 Stars - Excellent</option>
+                            <option value="4 Stars - Very Good">4 Stars - Very Good</option>
+                            <option value="3 Stars - Good">3 Stars - Good</option>
+                            <option value="2 Stars - Fair">2 Stars - Fair</option>
+                            <option value="1 Star - Poor">1 Star - Poor</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 1.5rem;">
+                        <label>Your Review</label>
+                        <textarea name="entry.1310147433" rows="4" placeholder="Share your experience..."
+                            required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn submit-btn" style="width: 100%; margin-top: 2rem;">
+                        <i class="fas fa-paper-plane"></i> Submit Review
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <section class="footer">
         <div class="box-container">
